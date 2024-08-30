@@ -1,4 +1,5 @@
 import reflex as rx
+from guessyou.state import State
 
 def index() -> rx.Component:
     return rx.box(
@@ -21,7 +22,9 @@ def index() -> rx.Component:
             font_size="70px",
             letter_spacing="-4px",
             bg="#1C1B1C",
-            font_weight="bold"
+            font_weight="bold",
+            value=State.current_input,
+            on_change=State.on_change_input
         ),
         rx.button(
             rx.image(
