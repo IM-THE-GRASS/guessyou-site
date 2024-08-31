@@ -7,7 +7,12 @@ from guessyou.pages.index import index
 
 
 
-
-app = rx.App()
+app = rx.App(
+    stylesheets=[
+        
+        "/styles.css",
+        
+    ],
+)
 app.add_page(index)
 app.add_page(results)

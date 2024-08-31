@@ -6,8 +6,9 @@ def index() -> rx.Component:
         rx.center(
             rx.image(
                 src="/GUESSYOU.png",
-                width="58vw",
+                width="100%",
                 height="22vh",
+                object_fit="contain"
                 # position="absolute",
                 # left="21vw",
                 # top="17vh"
@@ -22,7 +23,8 @@ def index() -> rx.Component:
             rx.input(
                 placeholder="What's your name?",
                 size="3",
-                width="33vw",
+                # width="33vw",
+                width="100vw",
                 height="11vh",
                 font_size="7.6vh",
                 letter_spacing="-0.4vh",

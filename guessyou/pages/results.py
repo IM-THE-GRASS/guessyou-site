@@ -11,19 +11,21 @@ def results() -> rx.Component:
                     "Hi, ",
                     font_weight="bold",
                     line_height="15vh",
-                    font_size="10vw"
+                    font_size=["15vh", "10vh"]
                 ),
                 rx.text(
                     State.current_input,
                     font_weight="bold",
                     line_height="15vh",
-                    font_size="10vw"
+                    font_size=["15vh", "10vh"]
+                    
                 ),
                 rx.text(
                     " 👋",
                     font_weight="bold",
                     line_height="15vh",
-                    font_size="10vw"
+                    font_size=["15vh", "10vh"]
+                    
                 ),
                 spacing="0",
                 gap = "0.5vh"
@@ -36,27 +38,58 @@ def results() -> rx.Component:
                 margin_top="2.5vh",
                 margin_left="0.3vw"
             ),
-            rx.hstack(
-                card(
-                    image=State.gender_img,
-                    text=State.gender_text,
-                    subtext=State.gender_subtext    
-                ),
-                age_card(
-                    big_text=State.age_text,
-                    text=State.age_text,
-                    subtext="years old"    
-                ),
-                card(
-                    image=State.nation_flag,
-                    text=State.nation_text,
-                    subtext=State.nation_subtext    
-                ),
-                spacing="0",
-                gap="10vw",
-                width="95vw",
-                height="69vh",
-                padding="5vh"
+            rx.tablet_and_desktop(
+                rx.hstack(
+                    card(
+                        image=State.gender_img,
+                        text=State.gender_text,
+                        subtext=State.gender_subtext    
+                    ),
+                    age_card(
+                        big_text=State.age_text,
+                        text=State.age_text,
+                        subtext="years old"    
+                    ),
+                    card(
+                        image=State.nation_flag,
+                        text=State.nation_text,
+                        subtext=State.nation_subtext    
+                    ),
+                    spacing="0",
+                    gap="10vw",
+                    width="95vw",
+                    height="69vh",
+                    padding="5vh",
+                    margin_bottom="5vh"
+                ),  
+                
+                
+            ),
+            rx.mobile_only(
+                rx.vstack(
+                    card(
+                        image=State.gender_img,
+                        text=State.gender_text,
+                        subtext=State.gender_subtext    
+                    ),
+                    age_card(
+                        big_text=State.age_text,
+                        text=State.age_text,
+                        subtext="years old"    
+                    ),
+                    card(
+                        image=State.nation_flag,
+                        text=State.nation_text,
+                        subtext=State.nation_subtext    
+                    ),
+                    spacing="0",
+                    gap="10vw",
+                    width="95vw",
+                    height="69vh",
+                    padding="5vh"
+                ),  
+                
+                
             ),
             position="absolute",
             left="3vw",
