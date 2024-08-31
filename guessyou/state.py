@@ -15,6 +15,11 @@ class State(rx.State):
     age_img:str
     age_text:str
     age_subtext:str
+    
+    
+    loading:bool = False
+    def loading_true(self):
+        self.loading = True
     def get_nation_info(self, input):
         response = requests.get(f"https://api.nationalize.io/?name={input}")
         data = response.json()
@@ -40,7 +45,7 @@ class State(rx.State):
     def load_result(self):
         if not self.current_input:
             return rx.redirect("/")
-        
+        self.loading = True
         nation_name, nation_probability, nation_id = self.get_nation_info(self.current_input)
         
         self.nation_text = nation_name
@@ -57,3 +62,4 @@ class State(rx.State):
             self.gender_img = "/male_white.png"
         else:
             self.gender_img = "/female_white.png"
+        self.loading = False

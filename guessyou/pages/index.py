@@ -24,7 +24,7 @@ def index() -> rx.Component:
                 placeholder="What's your name?",
                 size="3",
                 # width="33vw",
-                width="100vw",
+                width=["100vw","33vw"],
                 height="11vh",
                 font_size="7.6vh",
                 letter_spacing="-0.4vh",
@@ -43,7 +43,6 @@ def index() -> rx.Component:
             rx.button(
                 rx.image(
                     src="/Button.png",
-                    width="13vw",
                     height="7vh"
                 ),
                 as_child=True,
