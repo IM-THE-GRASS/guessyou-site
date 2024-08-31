@@ -10,27 +10,31 @@ def results() -> rx.Component:
                 rx.text(
                     "Hi, ",
                     font_weight="bold",
-                    line_height="134px",
-                    font_size="96px"
+                    line_height="15vh",
+                    font_size="10vw"
                 ),
                 rx.text(
                     State.current_input,
                     font_weight="bold",
-                    line_height="134px",
-                    font_size="96px"
+                    line_height="15vh",
+                    font_size="10vw"
                 ),
                 rx.text(
                     " 👋",
                     font_weight="bold",
-                    line_height="134px",
-                    font_size="96px"
+                    line_height="15vh",
+                    font_size="10vw"
                 ),
+                spacing="0",
+                gap = "0.5vh"
             ),
-            
+           
             rx.text(
                 "I think you are:",
-                font_size="48px",
-                line_height="48px"
+                font_size="5vh",
+                line_height="5vh",
+                margin_top="2.5vh",
+                margin_left="0.3vw"
             ),
             rx.hstack(
                 card(
@@ -49,13 +53,15 @@ def results() -> rx.Component:
                     subtext=State.nation_subtext    
                 ),
                 spacing="0",
-                gap="198px",
-                width="1821px",
-                height="637px",
-                padding="50px"
+                gap="10vw",
+                width="95vw",
+                height="69vh",
+                padding="5vh"
             ),
             position="absolute",
-            left="50px",
-            top="50px"
+            left="3vw",
+            top="5vh",
+            spacing="0",
+            gap="1vh"
         )
     )

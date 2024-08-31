@@ -5,68 +5,68 @@ def card(image = "/male_white.png", text="Male", subtext = "99% confident"):
     return rx.vstack(
         rx.image(
             src=image,
-            height="247px",
+            height="26.9vh",
             width="100%",
             object_fit="contain",  
         ),
         rx.vstack(
             rx.text(
                 text,
-                font_size="96px",
-                letter_spacing="-5px",
+                font_size="10.4vh",
+                letter_spacing="-0.5vh",
                 font_weight="bold",
-                line_height="96px"
+                line_height="10.4vh"
             ),
             rx.text(
                 subtext,
-                font_size="32px",
+                font_size="3.5vh",
                 color="#D0D0D0",
-                line_height="45px"
+                line_height="4.9vh"
             ),
             spacing="0",
-            gap="8px"
+            gap="0.9vh"
         ),
         spacing="0",
-        gap="16px",
-        padding="16px",
-        height="520px",
+        gap="1.7vh",
+        padding="1.7vh",
+        height="56.6vh",
         width="100%",
         bg="#1C1B1C",
-        border="1px solid #2C2C2C"
+        border="0.1vh solid #2C2C2C"
     ),
 def age_card(big_text = "45", text="Male", subtext = "99% confident"):
     return rx.vstack(
         rx.center(
             rx.text(
                 big_text,
-                font_size="256px",
+                font_size="27.9vh",
                 font_weight="bolder",
             ),
-            height="247px",
+            height="26.9vh",
             width="100%",
         ),
         rx.vstack(
             rx.text(
                 text,
-                font_size="96px",
-                letter_spacing="-5px",
+                font_size="10.4vh",
+                letter_spacing="-0.5vh",
                 font_weight="bold",
-                line_height="96px"
+                line_height="10.4vh"
             ),
             rx.text(
                 subtext,
-                font_size="32px",
+                font_size="3.5vh",
                 color="#D0D0D0",
-                line_height="45px"
+                line_height="4.9vh"
             ),
             spacing="0",
-            gap="8px"
+            gap="0.9vh"
         ),
         spacing="0",
-        gap="16px",
-        padding="16px",
-        height="520px",
+        gap="1.7vh",
+        padding="1.7vh",
+        height="56.6vh",
         width="100%",
         bg="#1C1B1C",
-        border="1px solid #2C2C2C"
+        border="0.1vh solid #2C2C2C"
     ),
