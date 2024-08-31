@@ -1,5 +1,5 @@
 import reflex as rx
-from guessyou.components.card import card   
+from guessyou.components.card import card, age_card  
 from guessyou.state import State
 
 @rx.page(on_load=State.load_result)
@@ -34,19 +34,19 @@ def results() -> rx.Component:
             ),
             rx.hstack(
                 card(
-                    image=State.nation_flag,
-                    text=State.nation_text,
-                    subtext=State.nation_subtext    
-                ),
-                card(
                     image=State.gender_img,
                     text=State.gender_text,
                     subtext=State.gender_subtext    
                 ),
-                card(
-                    image=State.age_img,
+                age_card(
+                    big_text=State.age_text,
                     text=State.age_text,
-                    subtext=State.age_subtext    
+                    subtext="years old"    
+                ),
+                card(
+                    image=State.nation_flag,
+                    text=State.nation_text,
+                    subtext=State.nation_subtext    
                 ),
                 spacing="0",
                 gap="198px",

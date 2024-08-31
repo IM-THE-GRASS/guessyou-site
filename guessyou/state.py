@@ -15,17 +15,45 @@ class State(rx.State):
     age_img:str
     age_text:str
     age_subtext:str
-    
-    
+    def get_nation_info(self, input):
+        response = requests.get(f"https://api.nationalize.io/?name={input}")
+        data = response.json()
+        print(data)
+        id = data["country"][0]["country_id"]
+        info = requests.get(f"https://restcountries.com/v3.1/alpha/{id}").json()
+        name = info[0]["name"]["common"]
+        probability = data["country"][0]["probability"] * 100
+        return name, probability, id
+    def get_age_info(self, input):
+        response = requests.get(f"https://api.agify.io/?name={input}")
+        data = response.json()
+        age = data["age"]
+        return age
+    def get_gender_info(self, input):
+        response = requests.get(f"https://api.genderize.io/?name={input}")
+        data = response.json()
+        gender = data["gender"]
+        probability = data["probability"] * 100
+        return gender, probability
     def on_change_input(self, new):
         self.current_input = new
     def load_result(self):
-        nation = requests.get(f"https://api.nationalize.io/?name={self.current_input}")
-        nation_data = nation.json()
-        nation_id = nation_data["country"][0]["country_id"]
-        nation_info = requests.get(f"https://restcountries.com/v3.1/alpha/{nation_id}").json()
-        nation_name = nation_info[0]["name"]["common"]
-        self.nation_text = nation_name
-        self.nation_subtext = nation_data["country"][0]["probability"] * 100
-        self.nation_subtext = f"{round(self.nation_subtext)}% sure"
+        if not self.current_input:
+            return rx.redirect("/")
         
+        nation_name, nation_probability, nation_id = self.get_nation_info(self.current_input)
+        
+        self.nation_text = nation_name
+        self.nation_subtext = f"{round(nation_probability)}% Probability"
+        self.nation_flag = f"https://flagcdn.com/w320/{nation_id.lower()}.png"
+        
+        age = self.get_age_info(self.current_input)
+        self.age_text = age
+        
+        gender, gender_probability = self.get_gender_info(self.current_input)
+        self.gender_text = gender.title()
+        self.gender_subtext = f"{round(gender_probability)}% Probability"
+        if gender == "male":
+            self.gender_img = "/male_white.png"
+        else:
+            self.gender_img = "/female_white.png"
